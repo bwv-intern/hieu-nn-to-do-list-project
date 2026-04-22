@@ -27,11 +27,26 @@ class AuthController extends Controller
         if (Auth::attempt($request->validated())) {
 
             $request->session()->regenerate();
-            
+
             return redirect()->intended('dashboard');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials']);
+    }
+
+    public function showRegister() {
+        return view('auth.register'); 
+    }
+
+    public function showLogin() {
+        return view('auth.login');
+    }
+
+    public function logout(\Illuminate\Http\Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
     }
 }
 
