@@ -38,6 +38,13 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard'); 
     })->name('dashboard');
 
+    /**
+     * Category:
+     * This resource route will automatically generate routes such as:
+     * index (GET), store (POST), destroy (DELETE), etc.
+     */ 
+    Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+
     // Logout (Use POST for better security)
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
