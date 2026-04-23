@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Repositories\{
     CategoryRepository,
     UserRepository,
+    TaskRepository,
 };
 use App\Repositories\Interfaces\{
     CategoryRepositoryInterface,
     UserRepositoryInterface,
+    TaskRepositoryInterface,
 };
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
          */
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
         $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+        $this->app->bind(TaskRepositoryInterface::class, TaskRepository::class);
     }
 
     /**

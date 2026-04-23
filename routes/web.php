@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\{
+    AuthController,
+    CategoryController,
+    TaskController,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +47,14 @@ Route::middleware(['auth'])->group(function () {
      * This resource route will automatically generate routes such as:
      * index (GET), store (POST), destroy (DELETE), etc.
      */ 
-    Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+    Route::resource('categories', CategoryController::class);
+
+    /**
+     * Task:
+     */
+    Route::resource('tasks', TaskController::class);
+    // Dedicated route for quick state changes
+    Route::patch('/tasks/{task}/toggle', [TaskController::class, 'toggleStatus'])->name('tasks.toggle');
 
     // Logout (Use POST for better security)
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
