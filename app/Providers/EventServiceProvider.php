@@ -2,8 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Observers\CategoryObserver;
+use App\Models\{
+    Category,
+    Task,
+};
+use App\Observers\{
+    CategoryObserver,
+    TaskObserver,
+};
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -29,6 +35,7 @@ class EventServiceProvider extends ServiceProvider
     {
         //
         Category::observe(CategoryObserver::class);
+        Task::observe(TaskObserver::class);
     }
 
     /**
