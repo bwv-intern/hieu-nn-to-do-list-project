@@ -20,7 +20,8 @@ class TaskController extends Controller
      */
     public function index() {
         $tasks = $this->taskRepo->getAllForUser(auth()->id());
-        return view('tasks.index', compact('tasks'));
+        $categories = Category::where('user_id', auth()->id())->get();
+        return view('tasks.index', compact('tasks', 'categories'));
     }
 
     /**
