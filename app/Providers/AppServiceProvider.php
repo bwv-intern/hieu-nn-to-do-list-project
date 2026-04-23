@@ -5,10 +5,12 @@ namespace App\Providers;
 use App\Repositories\{
     CategoryRepository,
     UserRepository,
+    TaskRepository,
 };
 use App\Repositories\Interfaces\{
     CategoryRepositoryInterface,
     UserRepositoryInterface,
+    TaskRepositoryInterface,
 };
 use Illuminate\Support\ServiceProvider;
 
