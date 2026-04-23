@@ -43,8 +43,19 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * A User has many Categories
+     */
     public function categories()
     {
         return $this->hasMany(Category::class);
+    }
+
+    /**
+     * A User has many Tasks (since we added user_id to the tasks table)
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 }
