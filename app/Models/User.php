@@ -42,4 +42,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+<<<<<<< HEAD
+=======
+
+    /**
+     * A User has many Categories
+     */
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    /**
+     * A User has many Tasks (since we added user_id to the tasks table)
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+>>>>>>> release/v1.0.0
 }
