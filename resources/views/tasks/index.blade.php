@@ -19,21 +19,39 @@
                         <div class="row g-3">
                             <div class="col-md-4">
                                 <label class="form-label small fw-bold">Tên công việc</label>
-                                <input type="text" name="title" class="form-control" placeholder="Cần làm gì..." required>
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" 
+                                    placeholder="Cần làm gì..." value="{{ old('title') }}" required>
+                                @error('title')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="col-md-3">
                                 <label class="form-label small fw-bold">Danh mục</label>
-                                <select name="category_id" class="form-select" required>
+                                <select name="category_id" class="form-select @error('category_id') is-invalid @enderror" required>
                                     <option value="">Chọn danh mục</option>
                                     @foreach($categories as $cat)
-                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                        <option value="{{ $cat->id }}" {{ old('category_id') == $cat->id ? 'selected' : '' }}>
+                                            {{ $cat->name }}
+                                        </option>
                                     @endforeach
                                 </select>
+                                @error('category_id')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="col-md-3">
                                 <label class="form-label small fw-bold">Hạn chót</label>
-                                <input type="datetime-local" name="due_date" class="form-control" required>
+                                <input type="datetime-local" name="due_date" 
+                                    class="form-control @error('due_date') is-invalid @enderror" 
+                                    value="{{ old('due_date') }}" 
+                                    min="{{ date('Y-m-d\TH:i') }}" required>
+                                @error('due_date')
+                                    <div class="invalid-feedback text-danger d-block">{{ $message }}</div>
+                                @enderror
                             </div>
+
                             <div class="col-md-2 d-flex align-items-end">
                                 <button type="submit" class="btn btn-primary w-100">Lưu</button>
                             </div>
