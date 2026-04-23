@@ -23,6 +23,11 @@ class UserRepository implements UserRepositoryInterface {
 
         return User::where('email', $email)->first();
 
+        $user = $this->userRepo->findByEmail($request->email);
+
+        if (!$user) {
+            return back()->withErrors(['email' => 'User not found!']);
+        }
     }
 
 }
