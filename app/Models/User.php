@@ -42,6 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+<<<<<<< HEAD
+=======
 
     /**
      * A User has many Categories
@@ -58,4 +60,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+>>>>>>> release/v1.0.0
 }
