@@ -1,13 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-=======
 use App\Http\Controllers\{
     AuthController,
     CategoryController,
     TaskController,
 };
->>>>>>> release/v1.0.0
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
-=======
 
 // GUEST group: Only for users who are not logged in.
 Route::middleware(['guest'])->group(function () {
@@ -64,4 +59,3 @@ Route::middleware(['auth'])->group(function () {
     // Logout (Use POST for better security)
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
->>>>>>> release/v1.0.0
