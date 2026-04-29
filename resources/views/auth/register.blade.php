@@ -8,7 +8,7 @@
         <div class="card shadow">
             <div class="card-header bg-primary text-white text-center"><h4>Đăng ký tài khoản</h4></div>
             <div class="card-body">
-                <form action="{{ route('register.post') }}" method="POST">
+                <form action="{{ route('register.post') }}" method="POST" id="registerForm">
                     @csrf <div class="mb-3">
                         <label class="form-label">Tên của bạn</label>
                         <input type="text" name="name" class="form-control" value="{{ old('name') }}">
@@ -42,3 +42,12 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    window.laravelData = {
+        checkEmailUrl: "{{ route('check.email') }}"
+    };
+</script>
+@vite(['resources/js/auth/register.js'])
+@endpush
