@@ -8,7 +8,7 @@ A clean and scalable **Task Management System** built with **Laravel 10**, apply
 
 | Technology | Description |
 |----------|------------|
-| ⚙️ Laravel 10 | Backend Framework |
+| ⚙️ Laravel 12 | Backend Framework |
 | 🐬 MySQL | Database |
 | 🧩 Repository Pattern | Business logic separation |
 | 👀 Observers | Auto-handling model events |
