@@ -30,4 +30,8 @@ class UserRepository implements UserRepositoryInterface {
         }
     }
 
+    // Check email for jQuery Remote
+    public function checkEmail(string $email){
+        return User::where('email', $email)->first();
+    }
 }
